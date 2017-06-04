@@ -1,0 +1,10 @@
+---
+
+- name:  provisioning callback
+  shell: |
+    #!bin/bash
+    set -x
+    TOWER_ADDRESS={{ tower_address }}
+    HOST_CONFIG_KEY={{ host_config_key }}
+    TEMPLATE_ID={{ template_id }}
+    curl -k -s --data "host_config_key=$HOST_CONFIG_KEY" https://$TOWER_ADDRESS/api/v1/job_templates/$TEMPLATE_ID/callback/
